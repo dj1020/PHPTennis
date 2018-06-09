@@ -25,6 +25,10 @@ class Game
             return $scoreLookup[$this->score1] . ' ' . $scoreLookup[$this->score2];
         }
 
+        if ($this->score1 >= 3) {
+            return "Deuce";
+        }
+
         return $scoreLookup[$this->score1] . " All";
     }
 }
