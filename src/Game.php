@@ -21,8 +21,8 @@ class Game
         ];
 
 
-            if ($this->score1 > 3 || $this->score2 > 3) {
         if ($this->isScoreDiff()) {
+            if ($this->score1 > 3) {
                 return 'Alex Adv';
             }
 
@@ -34,5 +34,13 @@ class Game
         }
 
         return $scoreLookup[$this->score1] . " All";
+    }
+
+    /**
+     * @return bool
+     */
+    protected function isScoreDiff()
+    {
+        return $this->score1 != $this->score2;
     }
 }
