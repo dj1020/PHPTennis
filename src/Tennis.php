@@ -5,6 +5,10 @@ class Tennis
     public function getScore($player1, $player2)
     {
         if ($player1 > $player2) {
+            if ($player2 >= 3) {
+                return "Joey Adv";
+            }
+
             switch ($player1) {
                 case 1:
                     return 'Fifteen Love';
@@ -16,6 +20,10 @@ class Tennis
         }
 
         if ($player2 > $player1) {
+            if ($player1 >= 3) {
+                return "Tom Adv";
+            }
+
             switch ($player2) {
                 case 1:
                     return 'Love Fifteen';
