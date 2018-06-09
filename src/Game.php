@@ -22,6 +22,10 @@ class Game
 
 
         if ($this->score1 != $this->score2) {
+            if ($this->score1 > 3 || $this->score2 > 3) {
+                return 'Alex Adv';
+            }
+
             return $scoreLookup[$this->score1] . ' ' . $scoreLookup[$this->score2];
         }
 

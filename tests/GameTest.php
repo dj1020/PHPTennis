@@ -35,6 +35,7 @@ final class GameTest extends TestCase
             [1, 1, 'Fifteen All'],
             [2, 2, 'Thirty All'],
             [3, 3, 'Deuce'],
+            [4, 3, 'Alex Adv'],
         ];
     }
 
