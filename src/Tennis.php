@@ -36,15 +36,15 @@ class Tennis
 
         if ($player2 == $player1) {
             switch ($player1) {
+                case 0:
+                    return 'Love All';
                 case 1:
                     return 'Fifteen All';
                 case 2:
                     return 'Thirty All';
-                case 3:
+                default:
                     return 'Deuce';
             }
         }
-
-        return 'Love All';
     }
 }
