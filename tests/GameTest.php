@@ -9,14 +9,12 @@ final class GameTest extends TestCase
 {
     /**
      * @test
+     * @dataProvider scoreProvider
      */
-    public function testLoveAll()
+    public function testScoreResult($score1, $score2, $expected)
     {
         /** Arrange */
-        $target = new Game(0, 0);
-
-        /** Assume */
-        $expected = "Love All";
+        $target = new Game($score1, $score2);
 
         /** Act */
         $actual = $target->score();
@@ -25,22 +23,13 @@ final class GameTest extends TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    /**
-     * @test
-     */
-    public function testFifteenAll()
+    public function scoreProvider()
     {
-        /** Arrange */
-        $target = new Game(1, 0);
-
-        /** Assume */
-        $expected = "Fifteen Love";
-
-        /** Act */
-        $actual = $target->score();
-
-        /** Assert */
-        $this->assertEquals($expected, $actual);
+        return [
+            [0, 0, 'Love All'],
+            [1, 0, 'Fifteen Love'],
+            [2, 0, 'Thirty Love'],
+        ];
     }
 
 }

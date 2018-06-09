@@ -12,8 +12,15 @@ class Game
     }
 
     function score() {
-        if ($this->score1 == 1) {
-            return "Fifteen Love";
+
+        $scoreLookup = [
+            0 => 'Love',
+            1 => 'Fifteen',
+            2 => 'Thirty',
+        ];
+
+        if ($this->score1 != $this->score2) {
+            return $scoreLookup[$this->score1] . ' ' . $scoreLookup[$this->score2];
         }
 
         return 'Love All';
