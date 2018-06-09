@@ -1,38 +1,40 @@
 <?php
 
+require __DIR__ . '/Player.php';
+
 class Tennis
 {
-    public function getScore($player1, $player2)
+    public function getScore(Player $player1, Player $player2)
     {
-        if ($player1 > $player2) {
-            if ($player1 >= 4 && ($player1 - $player2) >= 2) {
+        $scoreMap = [
+            0 => 'Love',
+            1 => 'Fifteen',
+            2 => 'Thirty',
+            3 => 'Forty',
+        ];
+
+        if ($player1->getScore() > $player2->getScore()) {
+            if ($player1->getScore() >= 4 && ($player1->getScore() - $player2->getScore()) >= 2) {
                 return "Joey Win";
             }
 
-            if ($player2 >= 3) {
+            if ($player2->getScore() >= 3) {
                 return "Joey Adv";
             }
 
-            switch ($player1) {
-                case 1:
-                    return 'Fifteen Love';
-                case 2:
-                    return 'Thirty Love';
-                case 3:
-                    return 'Forty Love';
-            }
+            return $scoreMap[$player1->getScore()] . ' ' . $scoreMap[$player2->getScore()];
         }
 
-        if ($player2 > $player1) {
-            if ($player2 >= 4 && ($player2 - $player1) >= 2) {
+        if ($player2->getScore() > $player1->getScore()) {
+            if ($player2->getScore() >= 4 && ($player2->getScore() - $player1->getScore()) >= 2) {
                 return "Tom Win";
             }
 
-            if ($player1 >= 3) {
+            if ($player1->getScore() >= 3) {
                 return "Tom Adv";
             }
 
-            switch ($player2) {
+            switch ($player2->getScore()) {
                 case 1:
                     return 'Love Fifteen';
                 case 2:
@@ -42,8 +44,8 @@ class Tennis
             }
         }
 
-        if ($player2 == $player1) {
-            switch ($player1) {
+        if ($player2->getScore() == $player1->getScore()) {
+            switch ($player1->getScore()) {
                 case 0:
                     return 'Love All';
                 case 1:
