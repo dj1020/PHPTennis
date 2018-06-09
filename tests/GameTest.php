@@ -29,6 +29,7 @@ final class GameTest extends TestCase
             [0, 0, 'Love All'],
             [1, 0, 'Fifteen Love'],
             [2, 0, 'Thirty Love'],
+            [3, 0, 'Forty Love'],
         ];
     }
 

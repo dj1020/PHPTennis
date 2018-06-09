@@ -17,6 +17,7 @@ class Game
             0 => 'Love',
             1 => 'Fifteen',
             2 => 'Thirty',
+            3 => 'Forty',
         ];
 
         if ($this->score1 != $this->score2) {
