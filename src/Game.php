@@ -20,10 +20,11 @@ class Game
             3 => 'Forty',
         ];
 
+
         if ($this->score1 != $this->score2) {
             return $scoreLookup[$this->score1] . ' ' . $scoreLookup[$this->score2];
         }
 
-        return 'Love All';
+        return $scoreLookup[$this->score1] . " All";
     }
 }
