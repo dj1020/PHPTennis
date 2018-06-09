@@ -1,36 +1,32 @@
 <?php
 declare(strict_types=1);
 
-final class Email
+require __DIR__ . '/../src/demo.php';
+
+use PHPUnit\Framework\TestCase;
+
+final class EmailTest extends TestCase
 {
-    private $email;
-
-    private function __construct(string $email)
+    public function testCanBeCreatedFromValidEmailAddress(): void
     {
-        $this->ensureIsValidEmail($email);
-
-        $this->email = $email;
+        $this->assertInstanceOf(
+            Email::class,
+            Email::fromString('user@example.com')
+        );
     }
 
-    public static function fromString(string $email): self
+    public function testCannotBeCreatedFromInvalidEmailAddress(): void
     {
-        return new self($email);
+        $this->expectException(InvalidArgumentException::class);
+
+        Email::fromString('invalid');
     }
 
-    public function __toString(): string
+    public function testCanBeUsedAsString(): void
     {
-        return $this->email;
-    }
-
-    private function ensureIsValidEmail(string $email): void
-    {
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    '"%s" is not a valid email address',
-                    $email
-                )
-            );
-        }
+        $this->assertEquals(
+            'user@example.com',
+            Email::fromString('user@example.com')
+        );
     }
 }
