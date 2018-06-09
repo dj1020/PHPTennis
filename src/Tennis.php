@@ -33,7 +33,7 @@ class Tennis
                 case 2:
                     return 'Thirty All';
                 case 3:
-                    return 'Forty All';
+                    return 'Deuce';
             }
         }
 
