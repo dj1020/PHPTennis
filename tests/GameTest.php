@@ -24,4 +24,23 @@ final class GameTest extends TestCase
         /** Assert */
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function testFifteenAll()
+    {
+        /** Arrange */
+        $target = new Game(1, 0);
+
+        /** Assume */
+        $expected = "Fifteen Love";
+
+        /** Act */
+        $actual = $target->score();
+
+        /** Assert */
+        $this->assertEquals($expected, $actual);
+    }
+
 }
