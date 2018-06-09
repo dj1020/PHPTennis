@@ -21,8 +21,8 @@ class Game
         ];
 
 
-        if ($this->score1 != $this->score2) {
             if ($this->score1 > 3 || $this->score2 > 3) {
+        if ($this->isScoreDiff()) {
                 return 'Alex Adv';
             }
 
