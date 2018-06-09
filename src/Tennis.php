@@ -15,6 +15,17 @@ class Tennis
             }
         }
 
+        if ($player2 > $player1) {
+            switch ($player2) {
+                case 1:
+                    return 'Love Fifteen';
+                case 2:
+                    return 'Love Thirty';
+                case 3:
+                    return 'Love Forty';
+            }
+        }
+
         return 'Love All';
     }
 }
